@@ -33,7 +33,7 @@ function InitVms(){
     configureVms $3
     configureVms $4
 
-    if [ $1 = "-1M2W"] ; then
+    if [ $1 = "-1M2W" ] ; then
         addWorker $4 $2
         addWorker $3 $2
     elif [ $1 = "-3M" ] ; then
@@ -46,7 +46,7 @@ function InitVms(){
     
     Services $2     
     multipass transfer NodePort.yaml $2:NodePort.yaml
-    multipass transfer AuthRBAC.yaml $2:RBAC.yaml
+    multipass transfer AuthRBAC.yaml $2:AuthRBAC.yaml
     multipass exec $2 -- kubectl apply -f NodePort.yaml 
     multipass exec $2 -- kubectl apply -f AuthRBAC.yaml 
 }
