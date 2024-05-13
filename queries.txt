@@ -1,0 +1,7 @@
+100 * (1 - avg(rate(node_cpu_seconds_total{mode="idle"}[5m])) by (instance))
+100 * (1 - avg(node_memory_MemAvailable_bytes) by (instance) / avg(node_memory_MemTotal_bytes) by (instance))
+sum(kube_pod_container_status_restarts_total) by (namespace, pod)
+
+
+
+kubectl -n kubernetes-dashboard create token admin-user
